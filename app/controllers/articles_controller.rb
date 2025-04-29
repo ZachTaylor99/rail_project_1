@@ -6,6 +6,17 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
+
+  def new
+  end
+
+  def create
+    @article = Article.new(params.require(:article).permit(:title, :description))
+    if @article.save
+      redirect_to @article
+    else 
+      render "new"
+  end
 end
 
 #   before_action :set_article, only: %i[ show edit update destroy ]
@@ -77,4 +88,5 @@ end
 #     def article_params
 #       params.expect(article: [ :title, :description ])
 #     end
-# end
+#   end
+#
