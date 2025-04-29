@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   def show
-    @article = Article.find { params[:id] }
+    @article = Article.find params[:id]
+  end
+
+  def edit
+    @article = Article.find params[:id]
   end
 
   def index
@@ -8,20 +12,32 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @article = Article.new
   end
 
   def create
     @article = Article.new(params.require(:article).permit(:title, :description))
     if @article.save
+      flash[:notice] = "Article was created successfully."
       redirect_to @article
-    else 
-      render "new"
+    else
+      render "new", status: :unprocessable_entity
+    end
+  end
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(params.require(:article).permit(:title, :description))
+    flash[:notice] = "Article was updated successfully."
+    redirect_to @article
+    else
+      render "edit", status: :unprocessable_entity
+    end
   end
 end
 
-#   before_action :set_article, only: %i[ show edit update destroy ]
+# before_action :set_article, only: %i[ show edit update destroy ]
 
-#   # GET /articles or /articles.json
+# GET /articles or /articles.json
 #   def index
 #     @articles = Article.all
 #   end
@@ -89,4 +105,3 @@ end
 #       params.expect(article: [ :title, :description ])
 #     end
 #   end
-#
