@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+
+a {
+    @apply text-blue-400 underline;
+}
