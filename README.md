@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+<!-- Articles button in top banner just adds /articles as opposed to going back to the og path>
