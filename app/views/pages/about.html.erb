@@ -2,3 +2,294 @@
 
 <%= link_to "Articles listing", articles_path %> |
 <%= link_to "Home Page", root_path %>
+
+<%# app/views/pages/about.html.erb %>
+
+<div class="relative overflow-hidden bg-gradient-to-b from-indigo-50 via-white to-blue-50">
+  <!-- Floating Elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <!-- Purple circle -->
+    <div class="absolute top-20 left-10 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+    
+    <!-- Blue circle -->
+    <div class="absolute top-40 right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+    
+    <!-- Teal circle -->
+    <div class="absolute bottom-20 left-1/3 w-80 h-80 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+    
+    <!-- Geometric shapes -->
+    <div class="absolute top-1/4 right-1/4 w-24 h-24 bg-indigo-500 rotate-12 rounded-lg opacity-10"></div>
+    <div class="absolute bottom-1/3 left-1/3 w-32 h-32 bg-blue-500 -rotate-12 rounded-full opacity-10"></div>
+    <div class="absolute top-2/3 right-1/3 w-20 h-20 bg-purple-500 rotate-45 rounded-lg opacity-10"></div>
+  </div>
+
+  <!-- Hero Section with modern design -->
+  <div class="relative overflow-hidden bg-transparent">
+    <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl relative">
+        <!-- Decorative element -->
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full opacity-10"></div>
+        
+        <span class="inline-flex items-center rounded-md bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800 mb-6">About Us</span>
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-blue-500">About Our Blog</h1>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          We're on a mission to share knowledge, inspire creativity, and build a community of passionate readers and writers.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Decorative wave divider -->
+    <div class="relative h-16">
+      <svg class="absolute bottom-0 w-full h-16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#f3f4f6" fill-opacity="1" d="M0,192L48,181.3C96,171,192,149,288,149.3C384,149,480,171,576,176C672,181,768,171,864,144C960,117,1056,75,1152,64C1248,53,1344,75,1392,85.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Our Story Section with card design -->
+  <div class="bg-gray-50 relative">
+    <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0 relative">
+        <!-- Decorative dots pattern -->
+        <div class="absolute -right-20 -top-10 w-40 h-40 opacity-10">
+          <div class="grid grid-cols-5 gap-2">
+            <% 25.times do %>
+              <div class="w-2 h-2 rounded-full bg-indigo-500"></div>
+            <% end %>
+          </div>
+        </div>
+        
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Story</h2>
+        <div class="mt-8 bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
+          <!-- Decorative corner accent -->
+          <div class="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rotate-12 rounded-lg opacity-20"></div>
+          
+          <div class="text-lg leading-8 text-gray-600 relative">
+            <p class="mb-4">
+              Founded in 2025, our blog started as a simple idea: create a space where knowledge could be shared freely and ideas could flourish.
+            </p>
+            <p class="mb-4">
+              What began as a small personal project has grown into a vibrant community of writers, thinkers, and curious minds. We believe in the power of well-crafted articles to educate, inspire, and spark meaningful conversations.
+            </p>
+            <p>
+              Today, we're proud to feature diverse voices covering a wide range of topics, from technology and business strategies to personal development and creative expression.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Section with animated cards -->
+  <div class="bg-white py-16 sm:py-24 relative">
+    <!-- Decorative background element -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-200 to-transparent"></div>
+    </div>
+    
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 relative">
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Team</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          We're a small but dedicated team passionate about creating valuable content.
+        </p>
+      </div>
+      
+      <ul role="list" class="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <!-- Team Member 1 - Zach Taylor with Unsplash photo -->
+        <li class="group">
+          <div class="relative overflow-hidden rounded-2xl transition-all duration-300 transform group-hover:scale-105 group-hover:shadow-xl">
+            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+            
+            <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Zach Taylor">
+            
+            <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+              <div class="translate-y-8 transform opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <p class="text-sm text-white/90 mt-2">
+                  "I believe that great content can change perspectives and inspire action."
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 class="mt-6 text-lg font-semibold leading-8 text-gray-900">Zach Taylor</h3>
+          <p class="text-base leading-7 text-gray-600">Founder / Editor in Chief</p>
+          <p class="mt-2 text-base leading-7 text-gray-600">Passionate about technology and storytelling.</p>
+        </li>
+        
+        <!-- Team Member 2 with hover effect -->
+        <li class="group">
+          <div class="relative overflow-hidden rounded-2xl transition-all duration-300 transform group-hover:scale-105 group-hover:shadow-xl">
+            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+            
+            <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+            
+            <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+              <div class="translate-y-8 transform opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <p class="text-sm text-white/90 mt-2">
+                  "Clarity is the cornerstone of effective communication."
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 class="mt-6 text-lg font-semibold leading-8 text-gray-900">Michael Wilson</h3>
+          <p class="text-base leading-7 text-gray-600">Senior Editor</p>
+          <p class="mt-2 text-base leading-7 text-gray-600">Bringing clarity and insight to complex topics.</p>
+        </li>
+        
+        <!-- Team Member 3 with hover effect -->
+        <li class="group">
+          <div class="relative overflow-hidden rounded-2xl transition-all duration-300 transform group-hover:scale-105 group-hover:shadow-xl">
+            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+            
+            <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+            
+            <div class="absolute bottom-0 left-0 right-0 p-6 z-20">
+              <div class="translate-y-8 transform opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <p class="text-sm text-white/90 mt-2">
+                  "Finding the right story is an art form in itself."
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <h3 class="mt-6 text-lg font-semibold leading-8 text-gray-900">Sarah Johnson</h3>
+          <p class="text-base leading-7 text-gray-600">Content Strategist</p>
+          <p class="mt-2 text-base leading-7 text-gray-600">Finding the stories that matter and bringing them to life.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Mission Statement with animated gradient cards -->
+  <div class="bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24 relative">
+    <!-- Decorative floating shapes -->
+    <div class="absolute top-1/2 left-10 w-64 h-64 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+    <div class="absolute top-1/4 right-10 w-80 h-80 bg-yellow-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+    
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 relative">
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Mission</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          We believe in the power of knowledge sharing and building community through thoughtful content.
+        </p>
+      </div>
+      
+      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+        <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+          <!-- Mission Point 1 -->
+          <div class="group relative rounded-2xl bg-white p-8 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-blue-200">
+            <div class="absolute -inset-px bg-gradient-to-r from-indigo-400 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+            <dt class="text-base font-semibold leading-7 text-gray-900">
+              <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 group-hover:from-indigo-500 group-hover:to-purple-600 transition-all duration-300">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+              </div>
+              Education
+            </dt>
+            <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto">We strive to create content that educates, informs, and helps our readers grow both personally and professionally.</p>
+            </dd>
+          </div>
+          
+          <!-- Mission Point 2 -->
+          <div class="group relative rounded-2xl bg-white p-8 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-blue-200">
+            <div class="absolute -inset-px bg-gradient-to-r from-indigo-400 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+            <dt class="text-base font-semibold leading-7 text-gray-900">
+              <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 group-hover:from-indigo-500 group-hover:to-purple-600 transition-all duration-300">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                </svg>
+              </div>
+              Community
+            </dt>
+            <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto">We're building a community where readers and writers can connect, share ideas, and learn from each other.</p>
+            </dd>
+          </div>
+          
+          <!-- Mission Point 3 -->
+          <div class="group relative rounded-2xl bg-white p-8 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-blue-200">
+            <div class="absolute -inset-px bg-gradient-to-r from-indigo-400 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+            <dt class="text-base font-semibold leading-7 text-gray-900">
+              <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 group-hover:from-indigo-500 group-hover:to-purple-600 transition-all duration-300">
+                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                </svg>
+              </div>
+              Innovation
+            </dt>
+            <dd class="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto">We're constantly exploring new ideas and approaches to content creation and distribution.</p>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section with decorative elements -->
+  <div class="relative bg-white py-16 sm:py-24 overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute -top-10 -right-10 w-32 h-32 bg-indigo-50 rounded-full"></div>
+    <div class="absolute bottom-10 -left-10 w-40 h-40 bg-blue-50 rounded-full"></div>
+    
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 relative">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="h-full w-full">
+          <div class="h-px w-32 bg-gradient-to-r from-blue-400 to-indigo-500 absolute top-1/4 left-10 transform rotate-12"></div>
+          <div class="h-px w-24 bg-gradient-to-r from-purple-400 to-pink-500 absolute bottom-1/3 right-10 transform -rotate-6"></div>
+        </div>
+      </div>
+      
+      <div class="mx-auto max-w-2xl text-center relative">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Get in Touch</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600">
+          We'd love to hear from you. Have questions, feedback, or want to contribute? Reach out to us.
+        </p>
+      </div>
+      
+      <div class="mx-auto mt-10 max-w-lg">
+        <div class="grid grid-cols-1 gap-8 text-base leading-7 text-gray-600 sm:grid-cols-2">
+          <div class="rounded-xl border border-gray-100 p-6 bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
+            <h3 class="font-semibold text-gray-900">Email</h3>
+            <p><a href="mailto:hello@example.com" class="hover:text-blue-600 transition-colors duration-300">hello@example.com</a></p>
+          </div>
+          <div class="rounded-xl border border-gray-100 p-6 bg-white shadow-sm hover:shadow-md transition-shadow duration-300">
+            <h3 class="font-semibold text-gray-900">Follow Us</h3>
+            <p>
+              <a href="#" class="hover:text-blue-600 transition-colors duration-300">Twitter</a> · 
+              <a href="#" class="hover:text-blue-600 transition-colors duration-300">LinkedIn</a> · 
+              <a href="#" class="hover:text-blue-600 transition-colors duration-300">GitHub</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :head do %>
+  <style>
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    
+    .animate-blob {
+      animation: blob 7s infinite;
+    }
+    
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+    
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+  </style>
+<% end %>

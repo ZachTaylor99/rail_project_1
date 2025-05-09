@@ -32,13 +32,16 @@
             <%end%>
         </div>
         <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <%= link_to "Articles", articles_path, class: "rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white", aria_current: "page" %>
+        <div class="flex space-x-4">
+            <!-- Use current_page? helper to determine the active link -->
+            <%= link_to "Articles", articles_path, class: "rounded-md px-3 py-2 text-sm font-medium #{current_page?(controller: 'articles', action: 'index') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
+            
+            <%= link_to "About", about_path, class: "rounded-md px-3 py-2 text-sm font-medium #{current_page?(about_path) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
+            
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
-            </div>
+        </div>
         </div>
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
