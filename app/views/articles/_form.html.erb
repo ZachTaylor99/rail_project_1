@@ -1,15 +1,4 @@
-<% if @article.errors.any? %>
-  <div class="mb-6 p-4 bg-red-50 rounded-lg border border-red-200">
-    <h2 class="text-lg font-medium text-red-800">
-      <%= pluralize(@article.errors.count, "error") %> prevented this article from being saved:
-    </h2>
-    <ul class="mt-2 ml-5 list-disc text-sm text-red-700">
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render "shared/errors" %>
 
 <%= form_with model: @article, class: "w-full max-w-full bg-gray-50 p-6 rounded-lg" do |f| %>
   <div class="mb-6">

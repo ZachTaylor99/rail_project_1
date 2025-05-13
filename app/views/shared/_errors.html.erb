@@ -1,0 +1,20 @@
+<% if @article.errors.any? %>
+  <div id="error-message" class="mb-6 p-4 bg-red-50 rounded-lg border border-red-200 relative">
+    <!-- Dismiss button -->
+    <button type="button" onclick="document.getElementById('error-message').style.display='none';" class="absolute top-2 right-2 text-red-500 hover:text-red-700 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+      <span class="sr-only">Dismiss error</span>
+    </button>
+
+    <h2 class="text-lg font-medium text-red-800 pr-6">
+      <%= pluralize(@article.errors.count, "error") %> prevented this article from being saved:
+    </h2>
+    <ul class="mt-2 ml-5 list-disc text-sm text-red-700">
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
