@@ -1,25 +1,35 @@
 <% if @article.errors.any? %>
-  <h2> The following errors prevented the article from being saved </h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+  <div class="mb-6 p-4 bg-red-50 rounded-lg border border-red-200">
+    <h2 class="text-lg font-medium text-red-800">
+      <%= pluralize(@article.errors.count, "error") %> prevented this article from being saved:
+    </h2>
+    <ul class="mt-2 ml-5 list-disc text-sm text-red-700">
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
-<%= form_with model: @article do |f|%>
+<%= form_with model: @article, class: "w-full max-w-full bg-gray-50 p-6 rounded-lg" do |f| %>
+  <div class="mb-6">
+    <%= f.label :title, class: "block mb-2 text-sm font-semibold text-gray-900" %>
+    <%= f.text_field :title, class: "w-full p-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" %>
+  </div>
 
-  <p> 
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
+  <div class="mb-6">
+    <%= f.label :description, class: "block mb-2 text-sm font-semibold text-gray-900" %>
+    <%= f.text_area :description, rows: 10, class: "w-full p-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" %>
+  </div>
 
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<%end%>
+  <div class="flex items-center justify-between mt-8">
+    <%= link_to articles_path, class: "inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 transition-colors" do %>
+      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+      </svg>
+      Back to Articles
+    <% end %>
+    
+    <%= f.submit class: "px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-300 transition-colors cursor-pointer" %>
+  </div>
+<% end %>

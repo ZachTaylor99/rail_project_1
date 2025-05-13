@@ -1,5 +1,132 @@
-<h1>Create a new article </h1>
+<div class="relative bg-gradient-to-b from-indigo-50 via-white to-blue-50 py-16 sm:py-24 min-h-screen">
+  <!-- Floating Elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-10 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+    <div class="absolute top-40 right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+  </div>
 
-<%= render "form" %>
+  <div class="relative mx-auto max-w-4xl px-6 lg:px-8"> <!-- Increased max-width from 3xl to 4xl -->
+    <!-- Breadcrumb -->
+    <nav class="flex mb-8" aria-label="Breadcrumb">
+      <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+          <%= link_to articles_path, class: "inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600" do %>
+            <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+            </svg>
+            Articles
+          <% end %>
+        </li>
+        <li aria-current="page">
+          <div class="flex items-center">
+            <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Create New Article</span>
+          </div>
+        </li>
+      </ol>
+    </nav>
+    
+    <!-- Page Header -->
+    <div class="mb-8 text-center">
+      <span class="inline-flex items-center rounded-md bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800 mb-3">New Content</span>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-blue-500">Create a New Article</h1>
+      <p class="mt-4 text-lg text-gray-600">Share your knowledge and insights with our community.</p>
+    </div>
+    
+    <!-- Form Container -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <!-- Form Header -->
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-4 border-b border-gray-100">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+          <h2 class="text-lg font-medium text-gray-900">Article Details</h2>
+        </div>
+        <p class="mt-1 text-sm text-gray-500">Fill out the form below to create your article.</p>
+      </div>
+      
+      <!-- Form Content - Replace this with your custom form styling -->
+      <div class="px-6 py-6">
+        <!-- This assumes your form partial has form fields that we'll style here -->
+        <style>
+          /* Custom styling for form fields */
+          .field {
+            margin-bottom: 1.5rem;
+          }
+          .field label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #374151;
+          }
+          .field input[type="text"],
+          .field textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background-color: #f9fafb;
+            font-size: 1rem;
+            transition: border-color 0.15s ease-in-out;
+          }
+          .field input[type="text"]:focus,
+          .field textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+          }
+          .field textarea {
+            min-height: 200px;
+            resize: vertical;
+          }
+          .actions input[type="submit"] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.625rem 1.25rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            border-radius: 0.5rem;
+            color: #ffffff;
+            background-color: #4f46e5;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+          }
+          .actions input[type="submit"]:hover {
+            background-color: #4338ca;
+          }
+        </style>
+        
+        <!-- Render the form with custom styling -->
+        <div class="form-container bg-gray-50 p-6 rounded-lg">
+          <%= render "form" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to "Return to articles listing", articles_path %>
+<% content_for :head do %>
+  <style>
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    
+    .animate-blob {
+      animation: blob 7s infinite;
+    }
+    
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+  </style>
+<% end %>
