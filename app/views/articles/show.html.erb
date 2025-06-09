@@ -44,7 +44,7 @@
       <div class="flex items-center mt-6 mb-8">
         <img class="w-10 h-10 rounded-full mr-4" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Author">
         <div>
-          <p class="text-sm font-medium text-gray-900">Zach Taylor</p>
+          <p class="text-sm font-medium text-gray-900"><%= @article.user.username if @article.user %></p>
           <p class="text-sm text-gray-500">Editor in Chief</p>
         </div>
       </div>
