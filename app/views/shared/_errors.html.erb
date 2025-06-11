@@ -1,4 +1,4 @@
-<% if @article.errors.any? %>
+<% if obj.errors.any? %>
   <div id="error-message" class="mb-6 p-4 bg-red-50 rounded-lg border border-red-200 relative">
     <!-- Dismiss button -->
     <button type="button" onclick="document.getElementById('error-message').style.display='none';" class="absolute top-2 right-2 text-red-500 hover:text-red-700 focus:outline-none">
@@ -9,10 +9,10 @@
     </button>
 
     <h2 class="text-lg font-medium text-red-800 pr-6">
-      <%= pluralize(@article.errors.count, "error") %> prevented this article from being saved:
+      <%= pluralize(obj.errors.count, "error") %> prevented this article from being saved:
     </h2>
     <ul class="mt-2 ml-5 list-disc text-sm text-red-700">
-      <% @article.errors.full_messages.each do |msg| %>
+      <% obj.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

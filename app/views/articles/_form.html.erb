@@ -1,4 +1,4 @@
-<%= render "shared/errors" %>
+<%= render "shared/errors", obj: @article %>
 
 <%= form_with model: @article, class: "w-full max-w-full bg-gray-50 p-6 rounded-lg" do |f| %>
   <div class="mb-6">
