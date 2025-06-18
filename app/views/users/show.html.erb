@@ -1,6 +1,7 @@
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12 mb-12">
   <h2 class="text-left text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"><%= @user.username %>'s profile</h2>
   <p class="mt-4 text-lg/8 text-gray-600 mb-6">Listen to my crazed rants and ramblings as if you asked an old prespector "where the gold in them there hills are."</p>
+  <%= link_to "Edit Your Profile", edit_user_path(@user), class: "w-full bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded shadow text-center no-underline mb-4" %>
 </div>
 
 <%= render "articles/article" %>
