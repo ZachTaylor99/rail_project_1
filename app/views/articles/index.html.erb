@@ -29,4 +29,18 @@
   <div class="h-px bg-gray-200 mt-4 mb-0"></div>
 </div>
 
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 sticky top-0 bg-white z-10 py-4">
+  <%= will_paginate @articles, 
+      class: "flex justify-center space-x-1",
+      previous_label: "← Prev",
+      next_label: "Next →" %>
+</div>
+
 <%= render "article" %>
+
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 sticky top-0 bg-white z-10 py-4">
+  <%= will_paginate @articles, 
+      class: "flex justify-center space-x-1",
+      previous_label: "← Prev",
+      next_label: "Next →" %>
+</div>

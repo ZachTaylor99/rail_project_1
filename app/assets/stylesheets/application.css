@@ -8,3 +8,38 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* style for pagination */
+[role="navigation"][aria-label="Pagination"] a,
+[role="navigation"][aria-label="Pagination"] span,
+[role="navigation"][aria-label="Pagination"] em {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+[role="navigation"][aria-label="Pagination"] a {
+  background-color: white;
+  color: #374151;
+  transition: background-color 0.2s;
+}
+
+[role="navigation"][aria-label="Pagination"] a:hover {
+  background-color: #f9fafb;
+}
+
+[role="navigation"][aria-label="Pagination"] .current {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: white;
+  font-style: normal;
+}
+
+[role="navigation"][aria-label="Pagination"] .disabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
