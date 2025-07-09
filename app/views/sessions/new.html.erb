@@ -1,0 +1,65 @@
+<div class="relative bg-gradient-to-b from-indigo-50 via-white to-blue-50 py-16 sm:py-24 min-h-screen">
+  <!-- Floating Elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-10 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+    <div class="absolute top-40 right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-4xl px-6 lg:px-8"> <!-- Increased max-width from 3xl to 4xl -->
+    <!-- Page Header -->
+    <div class="mb-8 text-center">
+      <span class="inline-flex items-center rounded-md bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800 mb-3">Welcome Back!</span>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-blue-500">Login</h1>
+      <p class="mt-4 text-lg text-gray-600">Or don't. It's your life, we aren't your parents.</p>
+    </div>
+    
+    <%= form_with scope: :session, url: login_path, class: "w-full max-w-full bg-gray-50 p-6 rounded-lg" do |f| %>
+
+      <div class="mb-6">
+        <%= f.label :email, class: "block mb-2 text-sm font-semibold text-gray-900" %>
+        <%= f.email_field :email, class: "w-full p-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" %>
+      </div>
+
+      <div class="mb-6">
+        <%= f.label :password, class: "block mb-2 text-sm font-semibold text-gray-900" %>
+        <%= f.password_field :password, class: "w-full p-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" %>
+      </div>
+
+      <div class="flex items-center justify-between mt-8">
+        <%= link_to articles_path, class: "inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 transition-colors" do %>
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Cancel
+        <% end %>
+        
+        <%= f.submit "Sign In", class: "px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-300 transition-colors cursor-pointer" %>
+      </div>  
+    <% end %>
+
+  </div>
+</div>
+
+<% content_for :head do %>
+  <style>
+
+    @keyframes blob
+    {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    
+    .animate-blob
+    {
+      animation: blob 7s infinite;
+    }
+    
+    .animation-delay-2000
+    {
+      animation-delay: 2s;
+    }
+    
+  </style>
+<% end %>
