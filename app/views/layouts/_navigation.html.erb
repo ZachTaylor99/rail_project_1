@@ -40,8 +40,6 @@
             
             <%= link_to "Team", users_path, class: "rounded-md px-3 py-2 text-sm font-medium #{current_page?(users_path) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
             
-            <%= link_to "Login", login_path, class: "rounded-md px-3 py-2 text-sm font-medium #{current_page?(login_path) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
-            
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
         </div>
@@ -78,10 +76,14 @@
             -->
             <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
             <!-- Active: "bg-gray-100 outline-none", Not Active: "" -->
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+            <% if logged_in? %>
+                <%= link_to "Your Profile", user_path(current_user), class: "block px-4 py-2 text-sm text-gray-700" %>
+                <%= link_to "Log out", logout_path, class: "block px-4 py-2 text-sm text-gray-700", data:{turbo_method: :delete} %>
+            <% else %>
+                <%= link_to "Login", login_path, class: "block px-4 py-2 text-sm text-gray-700" %>
+                <%= link_to "Sign up", signup_path, class: "block px-4 py-2 text-sm text-gray-700" %>
+            <% end %>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-            <%= link_to "Log out", logout_path, class: "block px-4 py-2 text-sm text-gray-700", data:{turbo_method: :delete} %>
-            
             </div>
         </div>
         </div>
