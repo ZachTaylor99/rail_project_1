@@ -53,7 +53,9 @@
               </div>
             </div>
             <div class="flex flex-col items-left space-y-10 lg:w-32">
-              <%= link_to "Edit", edit_user_path(user), class: "w-full bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded shadow text-center no-underline mb-4" %>
+              <% if logged_in? and user == current_user %>
+                <%= link_to "Edit", edit_user_path(user), class: "w-full bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded shadow text-center no-underline mb-4" %>
+              <% end %>
             </div>
           </article>
 

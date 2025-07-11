@@ -18,14 +18,14 @@
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12 mb-12">
   <h2 class="text-left text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">From The Blog</h2>
   <p class="mt-4 text-lg/8 text-gray-600 mb-6">Listen to my crazed rants and ramblings as if you asked an old prespector "where the gold in them there hills are."</p>
-  
-  <%= link_to new_article_path, class: "inline-flex items-center justify-center px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-sm group mb-8" do %>
-    <svg class="w-5 h-5 mr-2 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-    </svg>
-    New Article
+  <% if logged_in? %>
+    <%= link_to new_article_path, class: "inline-flex items-center justify-center px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-sm group mb-8" do %>
+      <svg class="w-5 h-5 mr-2 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+      </svg>
+      New Article
+    <% end %>
   <% end %>
-  
   <div class="h-px bg-gray-200 mt-4 mb-0"></div>
 </div>
 
