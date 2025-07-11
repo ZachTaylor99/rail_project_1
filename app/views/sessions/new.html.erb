@@ -13,7 +13,7 @@
       <p class="mt-4 text-lg text-gray-600">Or don't. It's your life, we aren't your parents.</p>
     </div>
     
-    <%= form_with scope: :session, url: login_path, class: "w-full max-w-full bg-gray-50 p-6 rounded-lg" do |f| %>
+    <%= form_with scope: :session, url: login_path, class: "w-full max-w-full bg-gray-75 p-6 rounded-lg" do |f| %>
 
       <div class="mb-6">
         <%= f.label :email, class: "block mb-2 text-sm font-semibold text-gray-900" %>
@@ -33,7 +33,7 @@
           Cancel
         <% end %>
         
-        <%= f.submit "Sign In", class: "px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-300 transition-colors cursor-pointer" %>
+        <%= f.submit "Login", class: "px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-300 transition-colors cursor-pointer" %>
       </div>  
     <% end %>
 
@@ -60,6 +60,6 @@
     {
       animation-delay: 2s;
     }
-    
+
   </style>
 <% end %>

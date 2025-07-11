@@ -39,7 +39,9 @@
             <%= link_to "About", about_path, class: "rounded-md px-3 py-2 text-sm font-medium #{current_page?(about_path) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
             
             <%= link_to "Team", users_path, class: "rounded-md px-3 py-2 text-sm font-medium #{current_page?(users_path) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
-
+            
+            <%= link_to "Login", login_path, class: "rounded-md px-3 py-2 text-sm font-medium #{current_page?(login_path) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}" %>
+            
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
         </div>
@@ -78,7 +80,8 @@
             <!-- Active: "bg-gray-100 outline-none", Not Active: "" -->
             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+            <%= link_to "Log out", logout_path, class: "block px-4 py-2 text-sm text-gray-700", data:{turbo_method: :delete} %>
+            
             </div>
         </div>
         </div>
