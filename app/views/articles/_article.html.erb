@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="flex flex-col items-left space-y-10 lg:w-32">
-              <% if logged_in? && article.user == current_user %>
+              <% if logged_in? && (article.user == current_user || current_user.admin?) %>
                 <%= link_to "Edit", edit_article_path(article), class: "w-full bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded shadow text-center no-underline mb-4" %>
                 <%= button_to "Delete", article_path(article), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded shadow" %>
               <% end %>
