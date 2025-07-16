@@ -1,0 +1,9 @@
+# test/fixtures/users.yml
+one:
+  email: "user1@example.com"
+  password_digest: "<%= BCrypt::Password.create('password123') %>"
+  # Add any other required User model attributes
+
+two:
+  email: "user2@example.com"
+  password_digest: "<%= BCrypt::Password.create('password123') %>"

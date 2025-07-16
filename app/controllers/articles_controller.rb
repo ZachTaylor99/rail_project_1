@@ -28,9 +28,11 @@ class ArticlesController < ApplicationController
     end
   end
   def update
-    if @article.update(article_params)
-    flash[:notice] = "Article was updated successfully."
-    redirect_to @article
+    foo = @article.update(article_params)
+    puts @article.errors.full_messages
+    if foo
+      flash[:notice] = "Article was updated successfully."
+      redirect_to @article
     else
       render "edit", status: :unprocessable_entity
     end

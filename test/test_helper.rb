@@ -1,14 +1,4 @@
-class ActionDispatch::IntegrationTest
-  def login_as(user)
-    # Adjust this based on your authentication system
-    post login_url, params: {
-      session: {
-        email: user.email,
-        password: "password" # or whatever the test password is
-      }
-    }
-  end
-end
+
 
 
 ENV["RAILS_ENV"] ||= "test"
@@ -24,5 +14,17 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+  end
+end
+
+class ActionDispatch::IntegrationTest
+  def login_as(user)
+    # Adjust this based on your authentication system
+    post login_url, params: {
+      session: {
+        email: user.email,
+        password: "password123" # or whatever the test password is
+      }
+    }
   end
 end
