@@ -1,0 +1,135 @@
+<!--- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12 mb-12">
+  <h2 class="text-left text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Categories</h2>
+  <p class="mt-4 text-lg/8 text-gray-600 mb-6">Listen to my crazed rants and ramblings as if you asked an old prespector "where the gold in them there hills are."</p>
+</div>
+
+<% @categories.each do |category| %> %>
+  <div class="bg-white py-8 sm:py-12">
+    <div class="mx-auto max-w-8xl px-8 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:max-w-4xl">
+        <div class="mt-4 space-y-20 lg:mt-16 lg:space-y-20">
+          <%# Left side - Image %>
+          <article class="relative isolate flex flex-col gap-8 lg:flex-row">
+            <div>
+              <div class="flex items-center gap-x-4 text-xs">
+                <time datetime="2020-03-16" class="text-gray-500">Created <%=time_ago_in_words(category.created_at)%> ago</time>
+                <a class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Updated <%=time_ago_in_words(category.updated_at)%> ago</a>
+              </div>
+              <div class="group relative max-w-xl">
+                <h3 class="mt-3 text-lg/6 font-semibold text-blue-800 group-hover:text-blue-400">
+                  <%= link_to category_path(category) do %>
+                    <span class="absolute inset-0"></span>
+                    <%= category.name %>
+                  <% end %>
+                </h3>
+              </div>
+              <div class="mt-6 flex border-t border-gray-900/5 pt-6"></div>
+            </div>
+          </article>
+
+          <%# More posts... %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+--->
+
+
+<div class="min-h-screen bg-slate-50 py-12">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Header Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Categories</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explore our collection of carefully curated categories</p>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 top-0 bg-white z-10 py-4">
+    <%= will_paginate @categories, 
+        class: "flex justify-center space-x-1",
+        previous_label: "← Prev",
+        next_label: "Next →" %>
+    </div>
+
+    <!-- Categories Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <% @categories.each_with_index do |category, index| %>
+        <div class="group relative">
+          <!-- Card -->
+          <div class="relative overflow-hidden rounded-3xl bg-white shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-3">
+            <!-- Card Content -->
+            <div class="relative p-8 z-10">
+              <!-- Category Icon/Number and Name -->
+              <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center space-x-6">
+                  <div class="relative">
+                    <div class="flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-500 text-white font-bold text-xl shadow-xl transform rotate-3 group-hover:rotate-0 transition-transform duration-300">
+                      <%= (index + 1).to_s.rjust(2, '0') %>
+                    </div>
+                    <div class="absolute -inset-1 bg-blue-400 rounded-2xl blur opacity-75 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  
+                  <div class="relative">
+                    <div class="absolute inset-0 rounded-2xl transform skew-y-1 group-hover:skew-y-0 transition-transform duration-300"></div>
+                    <h3 class="relative text-3xl font-black text-gray-900 py-4 px-6 group-hover:text-blue-600 transition-all duration-300 leading-tight">
+                      <%= link_to category_path(category), class: "block" do %>
+                        <span class="absolute inset-0"></span>
+                        <%= category.name %>
+                      <% end %>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Combined Timestamps -->
+              <div class="mb-8">
+                <div class="bg-gray-50 rounded-xl p-4 space-y-3">
+                  <div class="flex items-center text-sm text-gray-600">
+                    <svg class="w-4 h-4 mr-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                    </svg>
+                    <span class="font-semibold">Created <%=time_ago_in_words(category.created_at)%> ago</span>
+                  </div>
+                  
+                  <div class="flex items-center text-sm text-gray-600">
+                    <svg class="w-4 h-4 mr-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                    </svg>
+                    <span class="font-semibold">Updated <%=time_ago_in_words(category.updated_at)%> ago</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Button -->
+              <div class="mt-8">
+                <%= link_to category_path(category), class: "group/btn inline-flex items-center justify-center w-full px-6 py-4 text-base font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl" do %>
+                  <span class="relative z-10">Explore Category</span>
+                  <svg class="w-5 h-5 ml-3 transition-transform duration-300 group-hover/btn:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Empty State (if no categories) -->
+    <% if @categories.empty? %>
+      <div class="text-center py-16">
+        <div class="mx-auto w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">No categories yet</h3>
+        <p class="text-gray-600 mb-6">Get started by creating your first category</p>
+        <button class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300">
+          Create Category
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
