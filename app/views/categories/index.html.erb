@@ -45,7 +45,7 @@
     </div>
     
     <!-- Pagination -->
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 top-0 bg-white z-10 py-4">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 top-0 z-10 py-4">
     <%= will_paginate @categories, 
         class: "flex justify-center space-x-1",
         previous_label: "← Prev",
@@ -115,6 +115,16 @@
         </div>
       <% end %>
     </div>
+
+    <% if logged_in? && current_user.admin? %>
+    <%= link_to new_category_path, class: "inline-flex items-center justify-center px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-sm group mt-10 mb-8" do %>
+      <svg class="w-5 h-5 mr-2 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+      </svg>
+      New Category
+      <% end %>
+    <% end %>
+
 
     <!-- Empty State (if no categories) -->
     <% if @categories.empty? %>
