@@ -18,13 +18,13 @@ module ActiveSupport
 end
 
 class ActionDispatch::IntegrationTest
+  
+  def sign_in_as(user)
+    post login_path, params: { session: { email: user.email, password: "password123" } }
+  end
+  
   def login_as(user)
     # Adjust this based on your authentication system
-    post login_url, params: {
-      session: {
-        email: user.email,
-        password: "password123" # or whatever the test password is
-      }
-    }
+    post login_url, params: { session: { email: user.email, password: "password123" } }
   end
 end
