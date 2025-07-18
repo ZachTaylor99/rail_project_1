@@ -1,6 +1,6 @@
 <%= render "shared/errors", obj: @article %>
 
-<%= form_with model: @article, class: "w-full max-w-full bg-gray-50 p-6 rounded-lg" do |f| %>
+<%= form_with model: @article, class: "w-full max-w-full p-6 rounded-lg" do |f| %>
   <div class="mb-6">
     <%= f.label :title, class: "block mb-2 text-sm font-semibold text-gray-900" %>
     <%= f.text_field :title, class: "w-full p-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" %>
@@ -10,6 +10,123 @@
     <%= f.label :description, class: "block mb-2 text-sm font-semibold text-gray-900" %>
     <%= f.text_area :description, rows: 10, class: "w-full p-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" %>
   </div>
+
+
+  <!-- This will be to see how the bubbles work from Claude --->
+
+  <div class="mb-6">
+    <%= f.label :category, class: "block mb-2 text-sm font-semibold text-gray-900" %>
+    <div class="mt-2">
+      <!-- Category Bubbles Container -->
+      <div id="category-bubbles" class="flex flex-wrap gap-3 mb-4">
+        <% Category.all.each do |category| %>
+          <div class="category-bubble cursor-pointer px-4 py-2 rounded-full border-2 transition-all duration-200 select-none hover:shadow-md transform hover:scale-105 border-gray-300 bg-white text-gray-700 hover:border-blue-300"
+              data-category-id="<%= category.id %>"
+              data-category-name="<%= category.name %>">
+            <%= category.name %>
+          </div>
+        <% end %>
+      </div>
+      
+      <!-- Hidden inputs container for form submission -->
+      <div id="hidden-category-inputs">
+        <!-- Selected category IDs will be inserted here via JavaScript -->
+      </div>
+      
+      <!-- Optional: Display selected categories -->
+      <div class="mt-4 p-3 rounded-lg">
+        <p class="text-xs text-gray-600 mb-1">Selected categories:</p>
+        <div id="selected-categories-display" class="text-sm text-gray-800">
+          <span class="text-gray-400 italic">None selected</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener('turbo:load', function() {
+    const selectedCategories = new Set();
+    
+    // Get existing selected categories if editing
+    <% if @article&.category_ids&.any? %>
+      const existingCategories = <%= @article.category_ids.to_json.html_safe %>;
+      existingCategories.forEach(id => {
+        selectedCategories.add(parseInt(id));
+        const bubble = document.querySelector(`[data-category-id="${id}"]`);
+        if (bubble) {
+          selectBubble(bubble);
+        }
+      });
+      updateSelectedDisplay();
+      updateHiddenInputs();
+    <% end %>
+    
+    // Add click handlers to all category bubbles
+    document.querySelectorAll('.category-bubble').forEach(bubble => {
+      bubble.addEventListener('click', function() {
+        const categoryId = parseInt(this.getAttribute('data-category-id'));
+        const categoryName = this.getAttribute('data-category-name');
+        
+        if (selectedCategories.has(categoryId)) {
+          // Deselect
+          selectedCategories.delete(categoryId);
+          deselectBubble(this);
+        } else {
+          // Select
+          selectedCategories.add(categoryId);
+          selectBubble(this);
+        }
+        
+        updateHiddenInputs();
+        updateSelectedDisplay();
+      });
+    });
+    
+    function selectBubble(bubble) {
+      bubble.className = bubble.className.replace(
+        'border-gray-300 bg-white text-gray-700 hover:border-blue-300',
+        'border-blue-500 bg-blue-500 text-white hover:border-blue-600 hover:bg-blue-600'
+      );
+    }
+    
+    function deselectBubble(bubble) {
+      bubble.className = bubble.className.replace(
+        'border-blue-500 bg-blue-500 text-white hover:border-blue-600 hover:bg-blue-600',
+        'border-gray-300 bg-white text-gray-700 hover:border-blue-300'
+      );
+    }
+    
+    function updateHiddenInputs() {
+      const container = document.getElementById('hidden-category-inputs');
+      container.innerHTML = '';
+      
+      selectedCategories.forEach(categoryId => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = '<%= "#{f.object_name}[category_ids][]" %>';
+        input.value = categoryId;
+        container.appendChild(input);
+      });
+    }
+    
+    function updateSelectedDisplay() {
+      const display = document.getElementById('selected-categories-display');
+      
+      if (selectedCategories.size === 0) {
+        display.innerHTML = '<span class="text-gray-400 italic">None selected</span>';
+      } else {
+        const selectedNames = Array.from(selectedCategories).map(id => {
+          const bubble = document.querySelector(`[data-category-id="${id}"]`);
+          return bubble ? bubble.getAttribute('data-category-name') : '';
+        }).filter(name => name);
+        
+        display.textContent = selectedNames.join(', ');
+      }
+    }
+  });
+  </script>
+
+
 
   <div class="flex items-center justify-between mt-8">
     <%= link_to articles_path, class: "inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 transition-colors" do %>
