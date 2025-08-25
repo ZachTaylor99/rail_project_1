@@ -76,6 +76,7 @@
                       <%= link_to category_path(category), class: "block" do %>
                         <span class="absolute inset-0"></span>
                         <%= category.name %>
+                        <p class="italic"><%= pluralize(category.articles.count, "article") %> </p>
                       <% end %>
                     </h3>
                   </div>

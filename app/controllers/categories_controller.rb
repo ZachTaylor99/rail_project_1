@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :require_admin, except: [ :index, :show ]
 
-  before_action :require_admin, except: [:index, :show]
-  
   def new
     @category = Category.new
   end
@@ -22,6 +21,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @articles = @category.articles.paginate(page: params[:page], per_page: 5)
   end
 
 
@@ -37,5 +37,4 @@ class CategoriesController < ApplicationController
       redirect_to categories_path
     end
   end
-
 end
