@@ -1,0 +1,87 @@
+<div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+  <!-- Form Header -->
+  <div class="bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-4 border-b border-gray-100">
+    <div class="flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+      </svg>
+      <h2 class="text-lg font-medium text-gray-900">Category Details</h2>
+    </div>
+  </div>
+      
+      <!-- Form Content - Replace this with your custom form styling -->
+      <div class="px-6 py-6">
+        <!-- This assumes your form partial has form fields that we'll style here -->
+        <style>
+          /* Custom styling for form fields */
+          .field {
+            margin-bottom: 1.5rem;
+          }
+          .field label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #374151;
+          }
+          .field input[type="text"],
+          .field textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            background-color: #f9fafb;
+            font-size: 1rem;
+            transition: border-color 0.15s ease-in-out;
+          }
+          .field input[type="text"]:focus,
+          .field textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+          }
+          .field textarea {
+            min-height: 200px;
+            resize: vertical;
+          }
+          .actions input[type="submit"] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.625rem 1.25rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            border-radius: 0.5rem;
+            color: #ffffff;
+            background-color: #4f46e5;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+          }
+          .actions input[type="submit"]:hover {
+            background-color: #4338ca;
+          }
+        </style>
+        
+        <!-- Render the form with custom styling -->
+        <div class="form-container p-6 rounded-lg">
+            <%= render "shared/errors", obj: @category %>
+            <%= form_with model: @category, local: true, data: { turbo: false }, class: "w-full max-w-full p-6 rounded-lg" do |f| %>
+            <div class="mb-6">
+                <%= f.label :name, "Category Name", class: "block mb-2 text-sm font-semibold text-gray-900" %>
+                <%= f.text_field :name, class: "w-full p-3 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" %>
+            </div>
+            <div class="flex items-center justify-between mt-8">
+                <%= link_to categories_path, class: "inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 transition-colors" do %>
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Cancel
+                <% end %>
+                <%= f.submit class: "px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-300 transition-colors cursor-pointer" %>
+            </div>     
+            <% end %>
+        </div>
+      </div>
+    </div>
